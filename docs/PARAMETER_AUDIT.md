@@ -6,11 +6,11 @@
 
 ## 1.核对范围与证据
 
-- 正文：[本地PDF](ac3c03889.pdf)第2867页Figure1、第2868页Methods，以及Table1。
-- Supporting Information：[本地PDF](sources/ac3c03889_si_001.pdf)S7 EquationS6、S8 EquationS8、S12 TablesS1/S2/S3、S18 FiguresS5/S6。已渲染核对表格原页，确认数字不是PDF文本提取错位。
-- 官方 HEAD 再核验仍为 `4e1f541b5776e7fd1df14fce271b11a5cbfe3f87`；本地模型和config原样保留。[模型](pace_repo/models/PACE.py)、[配置](pace_repo/config.py)、[入口](pace_repo/main.py)、[训练与评估](pace_repo/utils/utils.py)、[加载器](pace_repo/utils/dataloader.py)、[增强](pace_repo/utils/transform.py)。
-- 已读取全部4个issue及作者回复，原始API响应保留在 [sources/github_issues.json](sources/github_issues.json)、`sources/github_issue_{1,2,3,4}_comments.json`。
-- 数值探针：[parameter_runtime_audit.json](results/parameter_runtime_audit.json)；真实数据形状、划分、精确重复：[data_audit.json](results/data_audit.json)；每次正式运行的命令/源码快照另保存在`runs/*/`。
+- 正文：本地PDF (`original-workspace/ac3c03889.pdf`，未随包提供)第2867页Figure1、第2868页Methods，以及Table1。
+- Supporting Information：本地PDF (`original-workspace/sources/ac3c03889_si_001.pdf`，未随包提供)S7 EquationS6、S8 EquationS8、S12 TablesS1/S2/S3、S18 FiguresS5/S6。已渲染核对表格原页，确认数字不是PDF文本提取错位。
+- 官方 HEAD 再核验仍为 `4e1f541b5776e7fd1df14fce271b11a5cbfe3f87`；本地模型和config原样保留。[模型](../pace_repo/models/PACE.py)、[配置](../pace_repo/config.py)、[入口](../pace_repo/main.py)、[训练与评估](../pace_repo/utils/utils.py)、[加载器](../pace_repo/utils/dataloader.py)、[增强](../pace_repo/utils/transform.py)。
+- 已读取全部4个issue及作者回复，原始API响应保留在 sources/github_issues.json (`original-workspace/sources/github_issues.json`，未随包提供)、`sources/github_issue_{1,2,3,4}_comments.json`。
+- 数值探针：parameter_runtime_audit.json (`original-workspace/results/parameter_runtime_audit.json`，未随包提供)；真实数据形状、划分、精确重复：data_audit.json (`original-workspace/results/data_audit.json`，未随包提供)；每次正式运行的命令/源码快照另保存在`runs/*/`。
 
 ## 2.模型结构：哪些能直接确认
 
@@ -103,7 +103,7 @@ GELU探针在[-10,10]上得到exact与tanh近似最大绝对差约0.0004735。�
 
 ## 7.进一步的公开历史核验
 
-详见[checkpoint溯源审查](refine-logs/CHECKPOINT_PROVENANCE_REVIEW.md)。首版30060e2的COV权重、config与模型同时发布；当时loader直接pool256、模型内部pool被注释。12b7d42在2024-09-27启用模型内pool并把独立test loader改成1024，权重未更新。同期公开日志逐类指标与本地pool256评估一致。这个来源修正解释了两种公开测试路径的时间顺序，不足以恢复原训练forward；两版模型均没有wave_emb。
+详见checkpoint溯源审查 (`original-workspace/refine-logs/CHECKPOINT_PROVENANCE_REVIEW.md`，未随包提供)。首版30060e2的COV权重、config与模型同时发布；当时loader直接pool256、模型内部pool被注释。12b7d42在2024-09-27启用模型内pool并把独立test loader改成1024，权重未更新。同期公开日志逐类指标与本地pool256评估一致。这个来源修正解释了两种公开测试路径的时间顺序，不足以恢复原训练forward；两版模型均没有wave_emb。
 
 公开历史中的RRUFF只有d1f1062一次上传，五个文件blob与当前HEAD一致；不是本地误拿了另一分支/旧版数据。SI划分矛盾仍未解决。
 
@@ -115,17 +115,17 @@ Bacteria官方Notebook的已执行输出为0.87233，30类报告与本地1024→
 
 已在关键版本环境分别用CPU重新评估公开权重：COV pool256仍86/93、macro-F1 0.9243288002；Bacteria 1024→256仍2617/3000、macro-F1 0.8678998911。证据：`results/pace2024_doc_validation_COV/metrics.json`、`results/bacteria_official_2024_1024/metrics.json`。这说明两份固定权重的这些聚合指标一致，不证明从头训练在两个环境下等价。
 
-COV统一新流程2×2已完成：现代与2024关键版本环境分别在upstream下都是78/93，在linear1024下都是76/93，逐样本预测也相同。[完整配对证据](results/cov_control_comparison.json)。这不支持将当前COV差距简单归因于所测的库版本或插值修正；原源码保留每epoch test迭代的训练流程诊断现已完成：200轮、validation最佳0.88、选epoch187，1024主路径和256敏感性路径均79/93；仍未达到作者86/93。
+COV统一新流程2×2已完成：现代与2024关键版本环境分别在upstream下都是78/93，在linear1024下都是76/93，逐样本预测也相同。完整配对证据 (`original-workspace/results/cov_control_comparison.json`，未随包提供)。这不支持将当前COV差距简单归因于所测的库版本或插值修正；原源码保留每epoch test迭代的训练流程诊断现已完成：200轮、validation最佳0.88、选epoch187，1024主路径和256敏感性路径均79/93；仍未达到作者86/93。
 
-有效运行后端也已分别用两个解释器取证：[现代探针](results/runtime_parameters_modern.json)、[2024探针](results/runtime_parameters_2024.json)，可由`python3 scripts/probe_runtime_parameters.py --output <新文件>`复跑。两者模型参数均float32，cuDNN deterministic=True/benchmark=False/allow_tf32=True，matmul allow_tf32=False，严格deterministic_algorithms=False；AdamW关键数值默认值相同。此处是上游seed函数后的实际默认设置，不代表逐比特训练确定性。
+有效运行后端也已分别用两个解释器取证：现代探针 (`original-workspace/results/runtime_parameters_modern.json`，未随包提供)、2024探针 (`original-workspace/results/runtime_parameters_2024.json`，未随包提供)，可由`python3 scripts/probe_runtime_parameters.py --output <新文件>`复跑。两者模型参数均float32，cuDNN deterministic=True/benchmark=False/allow_tf32=True，matmul allow_tf32=False，严格deterministic_algorithms=False；AdamW关键数值默认值相同。此处是上游seed函数后的实际默认设置，不代表逐比特训练确定性。
 
-原始Marine数据论文进一步核查：[ACS原文摘要](https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c00431)明确采用8个菌株，与仓库SX-1至SX-8一致。因此PACE SI的9类更可能是报告笔误（推论），不能据此断言缺少第9类下载。[来源记录](sources/marine_original_source_metadata.json)。RRUFF的8494+3554=12048也与SI TableS1总样本数一致；矛盾集中在TableS2的7644/1698训练/验证数字，不能把它未经证实解释成缺少训练数据，也不能靠改比例消除全部test重叠。
+原始Marine数据论文进一步核查：[ACS原文摘要](https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c00431)明确采用8个菌株，与仓库SX-1至SX-8一致。因此PACE SI的9类更可能是报告笔误（推论），不能据此断言缺少第9类下载。来源记录 (`original-workspace/sources/marine_original_source_metadata.json`，未随包提供)。RRUFF的8494+3554=12048也与SI TableS1总样本数一致；矛盾集中在TableS2的7644/1698训练/验证数字，不能把它未经证实解释成缺少训练数据，也不能靠改比例消除全部test重叠。
 
 SI TableS1另列Bacteria总样本63000，而已取得且无精确交集的reference60000、finetune3000、test3000三数组合计66000；TableS2两阶段数量则与实际训练命令对应。63000的统计口径未解释，本次不因此删掉finetune或缩减reference以强凑总数。
 
 ## FG提供的species/CAS索引补充审计
 
-此前只检查了光谱字节重复，未利用仓库已有的`species.npy/train_species.npy/test_species.npy`。现已补查：[可复跑脚本](scripts/audit_fg_species.py)、[完整JSON](results/fg_species_audit.json)。三个索引文件的Git blob均与锁定官方commit一致；长度与光谱相符，整体ID多重集等于train/test合并，按ID分组的17标签完全一致。9750条记录对应8163个唯一ID，所有ID均通过CAS校验位；原始数据作者代码使用去掉横线的CAS编号，NIST样例C50066确认为CAS50-06-6。原始程序集未由PACE提供，因此仍按仓库文件预期的行对应关系解释，未声称逐条重建原始CAS到光谱映射。
+此前只检查了光谱字节重复，未利用仓库已有的`species.npy/train_species.npy/test_species.npy`。现已补查：可复跑脚本 (`original-workspace/scripts/audit_fg_species.py`，未随包提供)、完整JSON (`original-workspace/results/fg_species_audit.json`，未随包提供)。三个索引文件的Git blob均与锁定官方commit一致；长度与光谱相符，整体ID多重集等于train/test合并，按ID分组的17标签完全一致。9750条记录对应8163个唯一ID，所有ID均通过CAS校验位；原始数据作者代码使用去掉横线的CAS编号，NIST样例C50066确认为CAS50-06-6。原始程序集未由PACE提供，因此仍按仓库文件预期的行对应关系解释，未声称逐条重建原始CAS到光谱映射。
 
 - train/test共享513个唯一ID，涉及516条test；这516条也都有精确训练光谱匹配，另有3条test仅光谱匹配而ID不同。
 - 在正式90/10划分内，780条validation中169条的ID在优化训练子集中出现，故验证集也不是严格按化合物分组隔离。

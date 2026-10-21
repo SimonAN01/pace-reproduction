@@ -22,7 +22,7 @@ def main():
     jobs.append('bacteria')
     for target in jobs:
         interpreter=a.env201 if target=='covid_high' else a.env220
-        command=[str(interpreter.resolve()),str(ROOT/'scripts/run_target.py'),a.mode,target,
+        command=[str(interpreter.absolute()),str(ROOT/'scripts/run_target.py'),a.mode,target,
                  '--output',str((a.output/target).resolve()),'--device',a.device]
         if target=='bacteria' and a.mode=='train':command += ['--base-checkpoint',str((a.output/'bacteria_pretrain/checkpoint.pth').resolve())]
         print('RUN',target,flush=True);subprocess.run(command,cwd=ROOT,check=True)
