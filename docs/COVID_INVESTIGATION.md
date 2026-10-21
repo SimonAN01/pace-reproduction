@@ -100,7 +100,7 @@ COV924.pth的zip仅有data.pkl、data/*和version3，无byteorder和.data/serial
 原始运行保存在runs/cov_gap_*；实际命令、代码/runner快照、source、history、split、最终预测、step500/505/506及主进程torch RNG均已保存。worker与sampler中途状态未完整记录，不声称可中途逐比特续跑。不得直接重启已有队列覆盖证据。需要新实验时创建新的登记、source及output；现有结果可只读重算：
 
 ```bash
-cd /home/zml/projects/zhy-ei
+cd /original-workspace
 .venv-pace2024/bin/python scripts/analyze_cov_gap_results.py
 .venv-pace2024/bin/python scripts/analyze_cov_gap_predictions.py
 .venv-pace2024/bin/python scripts/audit_reproduction.py

@@ -73,7 +73,7 @@ conda run -n pace201 python -c 'import sys; print(sys.executable)'
 | scikit-learn | 1.3.0 | 1.3.0 |
 | tqdm / Pillow | 4.65.0 / 10.0.1 | 4.65.0 / 10.0.1 |
 
-`run_target.py`默认强制核对这七项环境版本；不符合会停止。`--allow-environment-drift`仅用于明确记录偏离环境的诊断，不应拿其结果冒充原配置。
+`run_target.py`默认强制核对这六项关键环境版本；不符合会停止。`--allow-environment-drift`仅用于明确记录偏离环境的诊断，不应拿其结果冒充原配置。
 
 CUDA检查：
 

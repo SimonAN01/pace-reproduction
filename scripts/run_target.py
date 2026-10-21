@@ -70,7 +70,7 @@ def main():
         command=[sys.executable,str(ROOT/'scripts/evaluate.py'),'--dataset',t['dataset'],'--checkpoint',str(checkpoint.resolve()),
                  '--output',str(a.output.resolve()),'--device',a.device,'--input-pool',str(a.input_pool)]
         if t['linear_resize']:command += ['--linear-resize',str(t['linear_resize'])]
-    record=dict(target=a.target,mode=a.mode,command=command,environment=actual,expected_environment=expected,
+    record=dict(target=a.target,mode=a.mode,command=command,environment=actual,expected_environment=expected,launcher_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 environment_drift=actual!=expected,sanity=a.epochs is not None,output=str(a.output.resolve()),
                 created_utc=datetime.now(timezone.utc).isoformat(),execution_repository_commit=execution_commit,upstream_commit='4e1f541b5776e7fd1df14fce271b11a5cbfe3f87')
     print(json.dumps(record,ensure_ascii=False,indent=2),flush=True)
