@@ -1,0 +1,23 @@
+{
+  "base": "Python3.10.13 + torch2.0.1+cu118, serialization-era COVID hypothesis only",
+  "system_pkgs": [],
+  "pip_phases": [
+    ["numpy==1.26.3", "scipy==1.11.4", "scikit-learn==1.3.0", "tqdm==4.65.0", "pillow==10.0.1"],
+    ["torch==2.0.1+cu118", "torchvision==0.15.2+cu118", "--index-url", "https://download.pytorch.org/whl/cu118"]
+  ],
+  "env": {},
+  "run_commands": [],
+  "weight_dirs": {},
+  "smoke": {
+    "import_names": ["torch", "torchvision", "numpy", "scipy", "sklearn"],
+    "gpu_tests": [{
+      "cmd": ".venv-pace2023/bin/python scripts/validate_cov_hypothesis_env.py --output results/cov_torch201_kernel_validation.json",
+      "expect": "WITNESS cov_torch201 finite_forward_backward"
+    }],
+    "cli_checks": ["nvidia-smi"]
+  },
+  "limitations": [
+    "Missing byteorder/serialization_id is consistent with pre2.1 default serialization, not proof of exact training version.",
+    "Torch2.0.1 is a fixed latest-pre2.1 hypothesis; other packages held at the existing comparison versions, not a claimed original environment."
+  ]
+}

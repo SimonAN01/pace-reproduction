@@ -1,0 +1,299 @@
+{
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "files": [
+    {
+      "path": "pace_repo/datasets/COV/label.json",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/COV/label.json",
+      "bytes": 47,
+      "sha256": "2c82eba8f13e59a520c1cfe233989a1640f9d53f39d17deb47b15081964d275d"
+    },
+    {
+      "path": "pace_repo/datasets/COV/test_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/COV/test_x.npy",
+      "bytes": 669728,
+      "sha256": "0b0433e48276b2775f03f2a9ebf43d43c068468104d97b3b14cbc7fcdacc585c",
+      "shape": [
+        93,
+        900
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/COV/test_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/COV/test_y.npy",
+      "bytes": 872,
+      "sha256": "c3a7aa5f6dec0b1f0b6008ac519a8aeb779327512707c01a2b6584a85e0d270e",
+      "shape": [
+        93
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/COV/train_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/COV/train_x.npy",
+      "bytes": 2678528,
+      "sha256": "c3e36e977c526dda3c07e821ded1a21455e811ce0fff8113308738f6d7781a05",
+      "shape": [
+        372,
+        900
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/COV/train_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/COV/train_y.npy",
+      "bytes": 3104,
+      "sha256": "b4aec25a905db49d5f7ecbde60f7de10c697f5f3796ffa7e804035a54058ad29",
+      "shape": [
+        372
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Marine/label.json",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Marine/label.json",
+      "bytes": 104,
+      "sha256": "750a5ef3d3b85a42575c15ea6c4dc8dda805ea147603815a4cba1030224c55b7"
+    },
+    {
+      "path": "pace_repo/datasets/Marine/test_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Marine/test_x.npy",
+      "bytes": 5472128,
+      "sha256": "a21290178a497c0992f302855fd62f0171cc6d665e4283b27ea2be993aa007a0",
+      "shape": [
+        570,
+        1200
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Marine/test_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Marine/test_y.npy",
+      "bytes": 4688,
+      "sha256": "04a0fdb94945c79227b776373cfcf31aea3b120d92b3917195e7c34670440f2e",
+      "shape": [
+        570
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Marine/train_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Marine/train_x.npy",
+      "bytes": 5462528,
+      "sha256": "8c7a0e413f1c4ef1ecb9dace9801d2f0eb27143f70db1ed60d830e721f8e28a1",
+      "shape": [
+        569,
+        1200
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Marine/train_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Marine/train_y.npy",
+      "bytes": 4680,
+      "sha256": "2ee86688d05ba5b1f5dddc05f68381ec4d4ce08788f6175c93ce3521fcb8895c",
+      "shape": [
+        569
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/RRUFF/label.json",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/RRUFF/label.json",
+      "bytes": 28458,
+      "sha256": "060ee54ef634e68db6a7d9732012f7b63d6de1d19d4b8871a736aa0e262d77bf"
+    },
+    {
+      "path": "pace_repo/datasets/RRUFF/test_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/RRUFF/test_x.npy",
+      "bytes": 37757824,
+      "sha256": "c0a88c758c451dc3af908bb178bd2f80ae3653c7fe3f65f0c9f0aba374e587b1",
+      "shape": [
+        3554,
+        1328
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/RRUFF/test_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/RRUFF/test_y.npy",
+      "bytes": 28560,
+      "sha256": "55d64e95e513365a65667a69e0e9c7ea3719a4d5dab2b885d12d82845e7b1a2b",
+      "shape": [
+        3554
+      ],
+      "dtype": "int64"
+    },
+    {
+      "path": "pace_repo/datasets/RRUFF/train_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/RRUFF/train_x.npy",
+      "bytes": 90240384,
+      "sha256": "959bada5399bf03f92fb425979406f6afab9cd385de725c67718565cc0bff7ce",
+      "shape": [
+        8494,
+        1328
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/RRUFF/train_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/RRUFF/train_y.npy",
+      "bytes": 34104,
+      "sha256": "b40eba09c5724fe755cebec772b43b5f3cee49894d0245ef632b711a8926894f",
+      "shape": [
+        8494
+      ],
+      "dtype": "int32"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/species.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/species.npy",
+      "bytes": 78128,
+      "sha256": "91e1cf508f0c9e5ca29f00e9181bce35ec8a1e5563fd1240192f00928d6e4aef",
+      "shape": [
+        9750
+      ],
+      "dtype": "int64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/test_species.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/test_species.npy",
+      "bytes": 15728,
+      "sha256": "b6a63ab6ad1f2d2f410b93edea365c0d065c6f421641815146dbe1f9fc3a4789",
+      "shape": [
+        1950
+      ],
+      "dtype": "int64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/test_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/test_x.npy",
+      "bytes": 17284928,
+      "sha256": "0f83f00de51f8a9dedcc6dc2511582db60dac69a7e808e0babab404c9b2520b7",
+      "shape": [
+        1950,
+        1108
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/test_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/test_y.npy",
+      "bytes": 265328,
+      "sha256": "ec3b3a892944901b72211256294e059ed8c914cb2515e67b583639e89f534dc8",
+      "shape": [
+        1950,
+        17
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/train_species.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/train_species.npy",
+      "bytes": 62528,
+      "sha256": "d36942c4fed47e3e7c31b42541e876098e33584e669a8cabed85d5a2ce2deb02",
+      "shape": [
+        7800
+      ],
+      "dtype": "int64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/train_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/train_x.npy",
+      "bytes": 69139328,
+      "sha256": "47f039a07ff8979fc4e77ffaffd235f546a62ea303e7b6485aa00d49d7147448",
+      "shape": [
+        7800,
+        1108
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/FunctionalGroups/train_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/FunctionalGroups/train_y.npy",
+      "bytes": 1060928,
+      "sha256": "d6c68378c9ca69b9abaa57b268ae119c8dfb4aa5a2e936fc4c1d45656f2b549e",
+      "shape": [
+        7800,
+        17
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/label.json",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Bacteria/label.json",
+      "bytes": 706,
+      "sha256": "47b16e7bc360c0c6db7e4fdd0f564b8afe068d00aeedead621e6670e2736d4c3"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/test_x.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Bacteria/test_x.npy",
+      "bytes": 24000128,
+      "sha256": "ec43c85b44bf71ed6fabfcb4ddfde3d751d85e5a96be1fed9bb2b9ab1cd1f6e4",
+      "shape": [
+        3000,
+        1000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/test_y.npy",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/datasets/Bacteria/test_y.npy",
+      "bytes": 24128,
+      "sha256": "aece34e11169d5cd9d13124b666d3e4d69f38f582817bcf66218abf6a9d55edb",
+      "shape": [
+        3000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/train_x.npy",
+      "url": "https://www.dropbox.com/scl/fo/fb29ihfnvishuxlnpgvhg/AAMlPgO94WpviQv14-XN6dU/X_reference.npy?rlkey=r4p070nsuei6qj3pjp13nwf6l&dl=1",
+      "bytes": 480000128,
+      "sha256": "80040a919a6346b410745322b5593227823c77fb9ea4ae9b4bf7f4aef2a07e45",
+      "shape": [
+        60000,
+        1000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/train_y.npy",
+      "url": "https://www.dropbox.com/scl/fo/fb29ihfnvishuxlnpgvhg/ADvOucV5dBgbYBlYVoP3mgw/y_reference.npy?rlkey=r4p070nsuei6qj3pjp13nwf6l&dl=1",
+      "bytes": 480128,
+      "sha256": "f7458e2a5256ae828c6c00d93cd5e6b9f7d04a455860c77382408b04943ac85f",
+      "shape": [
+        60000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/tune_x.npy",
+      "url": "https://www.dropbox.com/scl/fo/fb29ihfnvishuxlnpgvhg/AFGIsNDfCk7BIlhMG3ErjP8/X_finetune.npy?rlkey=r4p070nsuei6qj3pjp13nwf6l&dl=1",
+      "bytes": 24000128,
+      "sha256": "361acaf2fa8fe868c90c33d3321a6045c1ea6be915c5dafae8a3d41a9bb900ad",
+      "shape": [
+        3000,
+        1000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/datasets/Bacteria/tune_y.npy",
+      "url": "https://www.dropbox.com/scl/fo/fb29ihfnvishuxlnpgvhg/AFmH7eEVfFApS0r9QP1jI54/y_finetune.npy?rlkey=r4p070nsuei6qj3pjp13nwf6l&dl=1",
+      "bytes": 24128,
+      "sha256": "aece34e11169d5cd9d13124b666d3e4d69f38f582817bcf66218abf6a9d55edb",
+      "shape": [
+        3000
+      ],
+      "dtype": "float64"
+    },
+    {
+      "path": "pace_repo/checkpoints/COV/PACE/924.pth",
+      "url": "https://raw.githubusercontent.com/X1nyuLu/PACE/4e1f541b5776e7fd1df14fce271b11a5cbfe3f87/checkpoints/COV/PACE/924.pth",
+      "bytes": 17211981,
+      "sha256": "f9e8a2e104e01c59520a752a4e731096da489bb9bf410d00cff40fc1aca444c1",
+      "purpose": "read-only COVID forensics hook; not used as optimization target"
+    }
+  ]
+}

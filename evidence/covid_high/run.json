@@ -1,0 +1,93 @@
+{
+  "invocation": {
+    "dataset": "COV",
+    "epochs": 200,
+    "seed": 42,
+    "train_size": 0.8,
+    "device": "cuda:0",
+    "linear_resize": null,
+    "output": "/original-workspace/runs/cov_gap_201_high",
+    "tune": false,
+    "base_checkpoint": null,
+    "queue_job_id": "cov_gap_201_high",
+    "queue_job_sha256": "b7a90d87aa313a13eb93d638792809ad14da4827b46519e819e06060f6ffcc0c",
+    "queue_contract_sha256": "2808d814e38b24af34b8ff5811d623d95660bdf53a0812459fc8d50232388aff",
+    "environment_role": null,
+    "evaluate_test": true
+  },
+  "environment": {
+    "executable": "/original-workspace/.venv-pace2023/bin/python",
+    "prefix": "/original-workspace/.venv-pace2023",
+    "python": "3.10.13",
+    "dependencies": {
+      "torch": "2.0.1+cu118",
+      "numpy": "1.26.3",
+      "scipy": "1.11.4",
+      "scikit-learn": "1.3.0",
+      "torchvision": "0.15.2+cu118"
+    }
+  },
+  "command": [
+    "/original-workspace/.venv-pace2023/bin/python",
+    "main.py",
+    "--train",
+    "--ds",
+    "COV",
+    "--device",
+    "cuda:0",
+    "--epoch",
+    "200",
+    "--seed",
+    "42",
+    "--train_size",
+    "0.8"
+  ],
+  "cwd": "/original-workspace/experiment_queue/cov_gap/sources/corrected_high",
+  "status": "complete",
+  "final_test_requested": true,
+  "python": "3.10.13",
+  "dependencies": {
+    "torch": "2.0.1+cu118",
+    "numpy": "1.26.3",
+    "scipy": "1.11.4",
+    "scikit-learn": "1.3.0",
+    "torchvision": "0.15.2+cu118"
+  },
+  "started_utc": "2026-10-21T05:07:54.992901+00:00",
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "code_sha256": {
+    "main.py": "fb907319a2d8d8eedcf5f77206a12497349e68108885d6bd10386cc266a816e5",
+    "config.py": "0b7f4e2a7f587d0315f0dd06950d96697da0e2fe413f041250cc191f233528e5",
+    "models/PACE.py": "afba59dddb6254e0d864d331bfd3463d216fa26b7a12ec32054ccdd81fa09114",
+    "utils/utils.py": "3bf8bdec5fa605c53b3cc0ef159a48e1997da07f4f8a79515e2598851fa91114",
+    "utils/dataloader.py": "49503acb1611f179471dfaa17f5e9366b0549f0b9dbf7cd24f9b21d89d216c19",
+    "utils/transform.py": "9e8fe60b64f84ff924cc945178d146a5c46ce1a969c0ee52463a01902b53bddb",
+    "scripts/train_public.py": "03797c2ffc5280f76329f884b81553e6c093f70de5c48725612fde738267a287",
+    "scripts/evaluate.py": "0f01443e04f01d8d86f99386e081018d5b9e59ceadfa67fa22a51a12afc7489f",
+    "scripts/experiment_contract.py": "2dace414866854a3812d8382550c6a24adc9330eedb210659eed12db48bea1fc"
+  },
+  "data_sha256": {
+    "test_x.npy": "0b0433e48276b2775f03f2a9ebf43d43c068468104d97b3b14cbc7fcdacc585c",
+    "test_y.npy": "c3a7aa5f6dec0b1f0b6008ac519a8aeb779327512707c01a2b6584a85e0d270e",
+    "train_x.npy": "c3e36e977c526dda3c07e821ded1a21455e811ce0fff8113308738f6d7781a05",
+    "train_y.npy": "b4aec25a905db49d5f7ecbde60f7de10c697f5f3796ffa7e804035a54058ad29"
+  },
+  "split": {
+    "random_state": 42,
+    "train_size": 0.8,
+    "n_train": 297,
+    "n_valid": 75,
+    "sha256": "4691baf93a5c285e6fa61b976f62cf88c6c7fae6a67afc187c30afb0e558a76e"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 595.71.05",
+  "training_pid": 381578,
+  "training_start_ticks": "8457767",
+  "checkpoint_sha256": "50747526fb799f272f6efc36f56282b9e67b9041002dba19597ea8615fd1c4f9",
+  "completed_epochs": 200,
+  "best_val_accuracy": 0.92,
+  "selected_epoch": 177,
+  "finished_utc": "2026-10-21T05:09:06.028472+00:00",
+  "cov_gap_adapter_sha256": "8c7ff22ca822c6b463c5bb57b0cf9bf76f695d578b794821156d6b7fbb177110",
+  "cov_gap_source_root": "/original-workspace/experiment_queue/cov_gap/sources/corrected_high",
+  "cov_gap_trajectory_sha256": "76f524f9f1b82a363192f1c3dffb313bb95b2e33a3bf19df725efaebebb16f4b"
+}

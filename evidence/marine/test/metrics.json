@@ -1,0 +1,100 @@
+{
+  "dataset": "Marine",
+  "n_test": 570,
+  "accuracy": 0.9947368421052631,
+  "correct": 567,
+  "metric": "accuracy",
+  "macro_f1": 0.9942404491481673,
+  "micro_f1": 0.9947368421052631,
+  "model": {
+    "dim": 1024,
+    "depth": 4,
+    "kernel_size": 9,
+    "patch_size": 16,
+    "pool_dim": 256,
+    "n_classes": 8
+  },
+  "input_pool": 1024,
+  "linear_resize": 1024,
+  "interpolation_align_corners": false,
+  "explicitly_ignored_legacy_keys": {},
+  "checkpoint": "/original-workspace/runs/marine_linear1024_2024_s2024/checkpoint.pth",
+  "checkpoint_sha256": "3dcd3777a9345bfca35657be7878f4bacd4a32125eb8aa0a4b939508e8efbae2",
+  "data_sha256": {
+    "test_x.npy": "a21290178a497c0992f302855fd62f0171cc6d665e4283b27ea2be993aa007a0",
+    "test_y.npy": "04a0fdb94945c79227b776373cfcf31aea3b120d92b3917195e7c34670440f2e"
+  },
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "python": "3.10.13",
+  "device": "cuda:0",
+  "dependencies": {
+    "torch": "2.2.0+cu121",
+    "torchvision": "0.17.0+cu121",
+    "numpy": "1.26.3",
+    "scikit-learn": "1.3.0",
+    "scipy": "1.11.4"
+  },
+  "classification_report": {
+    "0.0": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 75.0
+    },
+    "1.0": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 75.0
+    },
+    "2.0": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 75.0
+    },
+    "3.0": {
+      "precision": 0.9622641509433962,
+      "recall": 1.0,
+      "f1-score": 0.9807692307692307,
+      "support": 51.0
+    },
+    "4.0": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 69.0
+    },
+    "5.0": {
+      "precision": 1.0,
+      "recall": 0.9866666666666667,
+      "f1-score": 0.9932885906040269,
+      "support": 75.0
+    },
+    "6.0": {
+      "precision": 0.9864864864864865,
+      "recall": 0.9733333333333334,
+      "f1-score": 0.9798657718120806,
+      "support": 75.0
+    },
+    "7.0": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 75.0
+    },
+    "accuracy": 0.9947368421052631,
+    "macro avg": {
+      "precision": 0.9935938296787353,
+      "recall": 0.995,
+      "f1-score": 0.9942404491481673,
+      "support": 570.0
+    },
+    "weighted avg": {
+      "precision": 0.9948455406747363,
+      "recall": 0.9947368421052631,
+      "f1-score": 0.9947470314919978,
+      "support": 570.0
+    }
+  }
+}

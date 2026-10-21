@@ -1,0 +1,40 @@
+{
+  "tag": "v1.0.0",
+  "files": [
+    {
+      "path": "reference_models/covid_high.pth",
+      "sha256": "50747526fb799f272f6efc36f56282b9e67b9041002dba19597ea8615fd1c4f9",
+      "bytes": 17209670
+    },
+    {
+      "path": "reference_models/covid_linear.pth",
+      "sha256": "920d8f87829870875beecb0e76a559e1d9dcf6b946f69ac32b7a64cbf25a92ca",
+      "bytes": 17210127
+    },
+    {
+      "path": "reference_models/marine.pth",
+      "sha256": "3dcd3777a9345bfca35657be7878f4bacd4a32125eb8aa0a4b939508e8efbae2",
+      "bytes": 17230607
+    },
+    {
+      "path": "reference_models/rruff.pth",
+      "sha256": "a3b61508c98fa1b8ee22350debfef748036df7efdb03d5e8d6bcd4e368a7b2d7",
+      "bytes": 22568847
+    },
+    {
+      "path": "reference_models/functional_groups.pth",
+      "sha256": "5507a4ffdb16e09ad7ae4616e2426f8c1e4a735f01c2d0e66b30fd568ce99a79",
+      "bytes": 17267535
+    },
+    {
+      "path": "reference_models/bacteria_pretrain.pth",
+      "sha256": "f0f3271b706d7bc7f232aa0f95d8c0acd211175adc7243c786b9e735820d86f4",
+      "bytes": 17320847
+    },
+    {
+      "path": "reference_models/bacteria.pth",
+      "sha256": "0721830250cc74bde5b745840e2474f47bf99591ec0fc6ea329daf251da9eee0",
+      "bytes": 17316228
+    }
+  ]
+}

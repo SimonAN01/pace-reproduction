@@ -1,0 +1,98 @@
+{
+  "invocation": {
+    "dataset": "Bacteria",
+    "epochs": 200,
+    "seed": 2024,
+    "train_size": 0.9,
+    "device": "cuda:0",
+    "linear_resize": 1024,
+    "output": "/original-workspace/runs/bacteria_tune_linear1024_2024_s2024",
+    "tune": true,
+    "base_checkpoint": "/original-workspace/runs/bacteria_pretrain_linear1024_2024_s2024/checkpoint.pth",
+    "queue_job_id": "bacteria_tune_linear1024_2024_s2024",
+    "queue_job_sha256": "a11a9ea9c727a6167390638a08b431608dedf35221594a1e25b38114973f6fb2",
+    "queue_contract_sha256": "e755ba6338247a4c0686c714fe302d4fe7264c8e0ea646cf4871c8ebeb95f262",
+    "environment_role": "legacy",
+    "evaluate_test": true
+  },
+  "environment": {
+    "executable": "/original-workspace/.venv-pace2024/bin/python",
+    "prefix": "/original-workspace/.venv-pace2024",
+    "python": "3.10.13",
+    "dependencies": {
+      "torch": "2.2.0+cu121",
+      "numpy": "1.26.3",
+      "scipy": "1.11.4",
+      "scikit-learn": "1.3.0",
+      "torchvision": "0.17.0+cu121"
+    }
+  },
+  "command": [
+    "/original-workspace/.venv-pace2024/bin/python",
+    "main.py",
+    "--tune",
+    "--ds",
+    "Bacteria",
+    "--device",
+    "cuda:0",
+    "--epoch",
+    "200",
+    "--seed",
+    "2024",
+    "--train_size",
+    "0.9",
+    "--base_checkpoint",
+    "/original-workspace/runs/bacteria_pretrain_linear1024_2024_s2024/checkpoint.pth",
+    "--linear_resize",
+    "1024"
+  ],
+  "cwd": "/original-workspace/pace_repo",
+  "status": "complete",
+  "final_test_requested": true,
+  "python": "3.10.13",
+  "dependencies": {
+    "torch": "2.2.0+cu121",
+    "numpy": "1.26.3",
+    "scipy": "1.11.4",
+    "scikit-learn": "1.3.0",
+    "torchvision": "0.17.0+cu121"
+  },
+  "started_utc": "2026-10-20T19:19:50.518700+00:00",
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "code_sha256": {
+    "main.py": "047b4a72d2aa6e8e454f071d47e28c6793077b6a45754a70f57d8acf241b8bcb",
+    "config.py": "eb723f334ade4c76f8fa1d3269ec9ddc994ecca23c20b04297c1a15ae0322f6e",
+    "models/PACE.py": "fd48efba9c96bed0e06c84f6ae4778c7a4628df75bc8eea0ebdf23d483fdaa4f",
+    "utils/utils.py": "3bf8bdec5fa605c53b3cc0ef159a48e1997da07f4f8a79515e2598851fa91114",
+    "utils/dataloader.py": "49503acb1611f179471dfaa17f5e9366b0549f0b9dbf7cd24f9b21d89d216c19",
+    "utils/transform.py": "9e8fe60b64f84ff924cc945178d146a5c46ce1a969c0ee52463a01902b53bddb",
+    "scripts/train_public.py": "03797c2ffc5280f76329f884b81553e6c093f70de5c48725612fde738267a287",
+    "scripts/evaluate.py": "0f01443e04f01d8d86f99386e081018d5b9e59ceadfa67fa22a51a12afc7489f",
+    "scripts/experiment_contract.py": "2dace414866854a3812d8382550c6a24adc9330eedb210659eed12db48bea1fc"
+  },
+  "data_sha256": {
+    "test_x.npy": "ec43c85b44bf71ed6fabfcb4ddfde3d751d85e5a96be1fed9bb2b9ab1cd1f6e4",
+    "test_y.npy": "aece34e11169d5cd9d13124b666d3e4d69f38f582817bcf66218abf6a9d55edb",
+    "train_x.npy": "80040a919a6346b410745322b5593227823c77fb9ea4ae9b4bf7f4aef2a07e45",
+    "train_y.npy": "f7458e2a5256ae828c6c00d93cd5e6b9f7d04a455860c77382408b04943ac85f",
+    "tune_x.npy": "361acaf2fa8fe868c90c33d3321a6045c1ea6be915c5dafae8a3d41a9bb900ad",
+    "tune_y.npy": "aece34e11169d5cd9d13124b666d3e4d69f38f582817bcf66218abf6a9d55edb"
+  },
+  "base_checkpoint_path": "/original-workspace/runs/bacteria_pretrain_linear1024_2024_s2024/checkpoint.pth",
+  "base_checkpoint_sha256": "f0f3271b706d7bc7f232aa0f95d8c0acd211175adc7243c786b9e735820d86f4",
+  "split": {
+    "random_state": 42,
+    "train_size": 0.9,
+    "n_train": 2700,
+    "n_valid": 300,
+    "sha256": "db4b6212ec36ae7b5d04b5154902562ff285f96946cac0fc49b3fb9e776182f0"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 595.71.05",
+  "training_pid": 1116500,
+  "training_start_ticks": "4929351",
+  "checkpoint_sha256": "0721830250cc74bde5b745840e2474f47bf99591ec0fc6ea329daf251da9eee0",
+  "completed_epochs": 151,
+  "best_val_accuracy": 0.94,
+  "selected_epoch": 100,
+  "finished_utc": "2026-10-20T19:26:17.680982+00:00"
+}

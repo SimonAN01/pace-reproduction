@@ -1,0 +1,407 @@
+INFO:{'net': 'PACE', 'ds': 'FunctionalGroups', 'device': 'cuda:0', 'train': True, 'seed': '2024', 'linear_resize': 1024, 'train_size': '0.9', 'epoch': '200'}
+INFO:Effective network: {'dim': 1024, 'depth': 4, 'kernel_size': 9, 'patch_size': 16, 'pool_dim': 256}
+INFO:Effective strategy: {'batch_size': 64, 'epoch': 200, 'patience': 200, 'train_size': 0.9, 'optmizer': 'Adam', 'Adam_params': {'lr': 0.0001}, 'linear_resize': 1024}
+INFO:Effective task: n_classes=17, linear_resize=1024
+INFO:Effective optimizer: AdamW, defaults={'lr': 0.0001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': None, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None}
+INFO:Effective scheduler: CosineAnnealingLR, T_max=10, eta_min=1e-06, step=once_per_validation_epoch
+INFO:Effective split: train=7020, valid=780, split_seed=42, train_size=0.9
+INFO:Epoch  0, train loss:0.283948
+INFO:Epoch  0, valid loss:0.194505, valid accuracy:0.258974
+INFO:Epoch  1, train loss:0.176224
+INFO:Epoch  1, valid loss:0.148053, valid accuracy:0.450000
+INFO:Epoch  2, train loss:0.140182
+INFO:Epoch  2, valid loss:0.125221, valid accuracy:0.525641
+INFO:Epoch  3, train loss:0.117839
+INFO:Epoch  3, valid loss:0.113202, valid accuracy:0.537179
+INFO:Epoch  4, train loss:0.101164
+INFO:Epoch  4, valid loss:0.102905, valid accuracy:0.597436
+INFO:Epoch  5, train loss:0.090772
+INFO:Epoch  5, valid loss:0.097439, valid accuracy:0.626923
+INFO:Epoch  6, train loss:0.082752
+INFO:Epoch  6, valid loss:0.095019, valid accuracy:0.637179
+INFO:Epoch  7, train loss:0.077571
+INFO:Epoch  7, valid loss:0.091426, valid accuracy:0.651282
+INFO:Epoch  8, train loss:0.074083
+INFO:Epoch  8, valid loss:0.090616, valid accuracy:0.647436
+INFO:Epoch  9, train loss:0.072344
+INFO:Epoch  9, valid loss:0.090660, valid accuracy:0.647436
+INFO:Epoch 10, train loss:0.071248
+INFO:Epoch 10, valid loss:0.090603, valid accuracy:0.648718
+INFO:Epoch 11, train loss:0.071577
+INFO:Epoch 11, valid loss:0.090539, valid accuracy:0.650000
+INFO:Epoch 12, train loss:0.070591
+INFO:Epoch 12, valid loss:0.089961, valid accuracy:0.648718
+INFO:Epoch 13, train loss:0.070229
+INFO:Epoch 13, valid loss:0.089397, valid accuracy:0.653846
+INFO:Epoch 14, train loss:0.067953
+INFO:Epoch 14, valid loss:0.087421, valid accuracy:0.664103
+INFO:Epoch 15, train loss:0.065323
+INFO:Epoch 15, valid loss:0.088408, valid accuracy:0.655128
+INFO:Epoch 16, train loss:0.061701
+INFO:Epoch 16, valid loss:0.088081, valid accuracy:0.658974
+INFO:Epoch 17, train loss:0.057227
+INFO:Epoch 17, valid loss:0.085265, valid accuracy:0.684615
+INFO:Epoch 18, train loss:0.053164
+INFO:Epoch 18, valid loss:0.084613, valid accuracy:0.700000
+INFO:Epoch 19, train loss:0.047512
+INFO:Epoch 19, valid loss:0.087094, valid accuracy:0.673077
+INFO:Epoch 20, train loss:0.042744
+INFO:Epoch 20, valid loss:0.082480, valid accuracy:0.723077
+INFO:Epoch 21, train loss:0.037138
+INFO:Epoch 21, valid loss:0.082704, valid accuracy:0.707692
+INFO:Epoch 22, train loss:0.033567
+INFO:Epoch 22, valid loss:0.081948, valid accuracy:0.719231
+INFO:Epoch 23, train loss:0.030696
+INFO:Epoch 23, valid loss:0.084156, valid accuracy:0.716667
+INFO:Epoch 24, train loss:0.025738
+INFO:Epoch 24, valid loss:0.084765, valid accuracy:0.719231
+INFO:Epoch 25, train loss:0.022731
+INFO:Epoch 25, valid loss:0.083238, valid accuracy:0.733333
+INFO:Epoch 26, train loss:0.020776
+INFO:Epoch 26, valid loss:0.081375, valid accuracy:0.741026
+INFO:Epoch 27, train loss:0.019311
+INFO:Epoch 27, valid loss:0.080323, valid accuracy:0.734615
+INFO:Epoch 28, train loss:0.018581
+INFO:Epoch 28, valid loss:0.081756, valid accuracy:0.728205
+INFO:Epoch 29, train loss:0.017629
+INFO:Epoch 29, valid loss:0.080692, valid accuracy:0.735897
+INFO:Epoch 30, train loss:0.017533
+INFO:Epoch 30, valid loss:0.080158, valid accuracy:0.734615
+INFO:Epoch 31, train loss:0.018108
+INFO:Epoch 31, valid loss:0.080128, valid accuracy:0.734615
+INFO:Epoch 32, train loss:0.017809
+INFO:Epoch 32, valid loss:0.081635, valid accuracy:0.739744
+INFO:Epoch 33, train loss:0.017842
+INFO:Epoch 33, valid loss:0.080027, valid accuracy:0.732051
+INFO:Epoch 34, train loss:0.017619
+INFO:Epoch 34, valid loss:0.083069, valid accuracy:0.733333
+INFO:Epoch 35, train loss:0.017890
+INFO:Epoch 35, valid loss:0.084942, valid accuracy:0.734615
+INFO:Epoch 36, train loss:0.018458
+INFO:Epoch 36, valid loss:0.086412, valid accuracy:0.750000
+INFO:Epoch 37, train loss:0.018541
+INFO:Epoch 37, valid loss:0.090064, valid accuracy:0.716667
+INFO:Epoch 38, train loss:0.018737
+INFO:Epoch 38, valid loss:0.092467, valid accuracy:0.724359
+INFO:Epoch 39, train loss:0.018643
+INFO:Epoch 39, valid loss:0.088836, valid accuracy:0.721795
+INFO:Epoch 40, train loss:0.017543
+INFO:Epoch 40, valid loss:0.094159, valid accuracy:0.723077
+INFO:Epoch 41, train loss:0.016950
+INFO:Epoch 41, valid loss:0.093258, valid accuracy:0.725641
+INFO:Epoch 42, train loss:0.014657
+INFO:Epoch 42, valid loss:0.096859, valid accuracy:0.720513
+INFO:Epoch 43, train loss:0.013238
+INFO:Epoch 43, valid loss:0.093368, valid accuracy:0.737179
+INFO:Epoch 44, train loss:0.010966
+INFO:Epoch 44, valid loss:0.095835, valid accuracy:0.730769
+INFO:Epoch 45, train loss:0.010005
+INFO:Epoch 45, valid loss:0.092618, valid accuracy:0.734615
+INFO:Epoch 46, train loss:0.008889
+INFO:Epoch 46, valid loss:0.089380, valid accuracy:0.742308
+INFO:Epoch 47, train loss:0.008054
+INFO:Epoch 47, valid loss:0.089177, valid accuracy:0.750000
+INFO:Epoch 48, train loss:0.007537
+INFO:Epoch 48, valid loss:0.089166, valid accuracy:0.737179
+INFO:Epoch 49, train loss:0.007276
+INFO:Epoch 49, valid loss:0.088488, valid accuracy:0.752564
+INFO:Epoch 50, train loss:0.006985
+INFO:Epoch 50, valid loss:0.089001, valid accuracy:0.748718
+INFO:Epoch 51, train loss:0.006884
+INFO:Epoch 51, valid loss:0.090795, valid accuracy:0.747436
+INFO:Epoch 52, train loss:0.007292
+INFO:Epoch 52, valid loss:0.091147, valid accuracy:0.753846
+INFO:Epoch 53, train loss:0.007529
+INFO:Epoch 53, valid loss:0.090772, valid accuracy:0.755128
+INFO:Epoch 54, train loss:0.007948
+INFO:Epoch 54, valid loss:0.094225, valid accuracy:0.747436
+INFO:Epoch 55, train loss:0.008421
+INFO:Epoch 55, valid loss:0.096985, valid accuracy:0.737179
+INFO:Epoch 56, train loss:0.009316
+INFO:Epoch 56, valid loss:0.098000, valid accuracy:0.733333
+INFO:Epoch 57, train loss:0.009730
+INFO:Epoch 57, valid loss:0.099714, valid accuracy:0.715385
+INFO:Epoch 58, train loss:0.010974
+INFO:Epoch 58, valid loss:0.109253, valid accuracy:0.706410
+INFO:Epoch 59, train loss:0.010627
+INFO:Epoch 59, valid loss:0.105982, valid accuracy:0.701282
+INFO:Epoch 60, train loss:0.011387
+INFO:Epoch 60, valid loss:0.108744, valid accuracy:0.723077
+INFO:Epoch 61, train loss:0.011873
+INFO:Epoch 61, valid loss:0.107612, valid accuracy:0.741026
+INFO:Epoch 62, train loss:0.009342
+INFO:Epoch 62, valid loss:0.106462, valid accuracy:0.733333
+INFO:Epoch 63, train loss:0.007793
+INFO:Epoch 63, valid loss:0.103682, valid accuracy:0.742308
+INFO:Epoch 64, train loss:0.006932
+INFO:Epoch 64, valid loss:0.100916, valid accuracy:0.746154
+INFO:Epoch 65, train loss:0.005690
+INFO:Epoch 65, valid loss:0.102325, valid accuracy:0.748718
+INFO:Epoch 66, train loss:0.005403
+INFO:Epoch 66, valid loss:0.100581, valid accuracy:0.762821
+INFO:Epoch 67, train loss:0.004383
+INFO:Epoch 67, valid loss:0.102544, valid accuracy:0.752564
+INFO:Epoch 68, train loss:0.004286
+INFO:Epoch 68, valid loss:0.101955, valid accuracy:0.758974
+INFO:Epoch 69, train loss:0.003742
+INFO:Epoch 69, valid loss:0.101291, valid accuracy:0.756410
+INFO:Epoch 70, train loss:0.004032
+INFO:Epoch 70, valid loss:0.101134, valid accuracy:0.756410
+INFO:Epoch 71, train loss:0.003947
+INFO:Epoch 71, valid loss:0.100298, valid accuracy:0.758974
+INFO:Epoch 72, train loss:0.003845
+INFO:Epoch 72, valid loss:0.101615, valid accuracy:0.746154
+INFO:Epoch 73, train loss:0.004196
+INFO:Epoch 73, valid loss:0.103244, valid accuracy:0.752564
+INFO:Epoch 74, train loss:0.004430
+INFO:Epoch 74, valid loss:0.105593, valid accuracy:0.757692
+INFO:Epoch 75, train loss:0.005061
+INFO:Epoch 75, valid loss:0.107297, valid accuracy:0.741026
+INFO:Epoch 76, train loss:0.005966
+INFO:Epoch 76, valid loss:0.104096, valid accuracy:0.741026
+INFO:Epoch 77, train loss:0.007665
+INFO:Epoch 77, valid loss:0.110869, valid accuracy:0.723077
+INFO:Epoch 78, train loss:0.007615
+INFO:Epoch 78, valid loss:0.109989, valid accuracy:0.734615
+INFO:Epoch 79, train loss:0.008121
+INFO:Epoch 79, valid loss:0.118420, valid accuracy:0.733333
+INFO:Epoch 80, train loss:0.008322
+INFO:Epoch 80, valid loss:0.112850, valid accuracy:0.725641
+INFO:Epoch 81, train loss:0.008339
+INFO:Epoch 81, valid loss:0.115805, valid accuracy:0.737179
+INFO:Epoch 82, train loss:0.006248
+INFO:Epoch 82, valid loss:0.116672, valid accuracy:0.729487
+INFO:Epoch 83, train loss:0.005674
+INFO:Epoch 83, valid loss:0.112146, valid accuracy:0.746154
+INFO:Epoch 84, train loss:0.004457
+INFO:Epoch 84, valid loss:0.109934, valid accuracy:0.753846
+INFO:Epoch 85, train loss:0.003762
+INFO:Epoch 85, valid loss:0.109016, valid accuracy:0.744872
+INFO:Epoch 86, train loss:0.003836
+INFO:Epoch 86, valid loss:0.109185, valid accuracy:0.757692
+INFO:Epoch 87, train loss:0.002949
+INFO:Epoch 87, valid loss:0.109903, valid accuracy:0.746154
+INFO:Epoch 88, train loss:0.002606
+INFO:Epoch 88, valid loss:0.110360, valid accuracy:0.748718
+INFO:Epoch 89, train loss:0.002630
+INFO:Epoch 89, valid loss:0.109690, valid accuracy:0.753846
+INFO:Epoch 90, train loss:0.002462
+INFO:Epoch 90, valid loss:0.108673, valid accuracy:0.757692
+INFO:Epoch 91, train loss:0.002470
+INFO:Epoch 91, valid loss:0.109406, valid accuracy:0.752564
+INFO:Epoch 92, train loss:0.002520
+INFO:Epoch 92, valid loss:0.109022, valid accuracy:0.755128
+INFO:Epoch 93, train loss:0.002760
+INFO:Epoch 93, valid loss:0.109923, valid accuracy:0.751282
+INFO:Epoch 94, train loss:0.003093
+INFO:Epoch 94, valid loss:0.109962, valid accuracy:0.746154
+INFO:Epoch 95, train loss:0.003282
+INFO:Epoch 95, valid loss:0.114378, valid accuracy:0.747436
+INFO:Epoch 96, train loss:0.004024
+INFO:Epoch 96, valid loss:0.116320, valid accuracy:0.748718
+INFO:Epoch 97, train loss:0.005620
+INFO:Epoch 97, valid loss:0.126545, valid accuracy:0.730769
+INFO:Epoch 98, train loss:0.006139
+INFO:Epoch 98, valid loss:0.122958, valid accuracy:0.726923
+INFO:Epoch 99, train loss:0.006481
+INFO:Epoch 99, valid loss:0.126720, valid accuracy:0.739744
+INFO:Epoch100, train loss:0.007028
+INFO:Epoch100, valid loss:0.117951, valid accuracy:0.733333
+INFO:Epoch101, train loss:0.006657
+INFO:Epoch101, valid loss:0.129248, valid accuracy:0.742308
+INFO:Epoch102, train loss:0.006474
+INFO:Epoch102, valid loss:0.121310, valid accuracy:0.730769
+INFO:Epoch103, train loss:0.004649
+INFO:Epoch103, valid loss:0.120510, valid accuracy:0.737179
+INFO:Epoch104, train loss:0.003606
+INFO:Epoch104, valid loss:0.120408, valid accuracy:0.753846
+INFO:Epoch105, train loss:0.002917
+INFO:Epoch105, valid loss:0.118487, valid accuracy:0.747436
+INFO:Epoch106, train loss:0.002311
+INFO:Epoch106, valid loss:0.117844, valid accuracy:0.751282
+INFO:Epoch107, train loss:0.002133
+INFO:Epoch107, valid loss:0.116121, valid accuracy:0.743590
+INFO:Epoch108, train loss:0.001982
+INFO:Epoch108, valid loss:0.116786, valid accuracy:0.751282
+INFO:Epoch109, train loss:0.002019
+INFO:Epoch109, valid loss:0.117460, valid accuracy:0.752564
+INFO:Epoch110, train loss:0.001650
+INFO:Epoch110, valid loss:0.117380, valid accuracy:0.747436
+INFO:Epoch111, train loss:0.001827
+INFO:Epoch111, valid loss:0.116694, valid accuracy:0.747436
+INFO:Epoch112, train loss:0.001805
+INFO:Epoch112, valid loss:0.116104, valid accuracy:0.751282
+INFO:Epoch113, train loss:0.001906
+INFO:Epoch113, valid loss:0.115814, valid accuracy:0.752564
+INFO:Epoch114, train loss:0.002217
+INFO:Epoch114, valid loss:0.118582, valid accuracy:0.757692
+INFO:Epoch115, train loss:0.002406
+INFO:Epoch115, valid loss:0.115666, valid accuracy:0.743590
+INFO:Epoch116, train loss:0.002687
+INFO:Epoch116, valid loss:0.130016, valid accuracy:0.733333
+INFO:Epoch117, train loss:0.003812
+INFO:Epoch117, valid loss:0.150348, valid accuracy:0.737179
+INFO:Epoch118, train loss:0.004347
+INFO:Epoch118, valid loss:0.137393, valid accuracy:0.723077
+INFO:Epoch119, train loss:0.005976
+INFO:Epoch119, valid loss:0.167430, valid accuracy:0.703846
+INFO:Epoch120, train loss:0.005773
+INFO:Epoch120, valid loss:0.127525, valid accuracy:0.735897
+INFO:Epoch121, train loss:0.005585
+INFO:Epoch121, valid loss:0.130647, valid accuracy:0.735897
+INFO:Epoch122, train loss:0.004312
+INFO:Epoch122, valid loss:0.155569, valid accuracy:0.741026
+INFO:Epoch123, train loss:0.003215
+INFO:Epoch123, valid loss:0.131519, valid accuracy:0.742308
+INFO:Epoch124, train loss:0.002878
+INFO:Epoch124, valid loss:0.130577, valid accuracy:0.734615
+INFO:Epoch125, train loss:0.002135
+INFO:Epoch125, valid loss:0.123550, valid accuracy:0.743590
+INFO:Epoch126, train loss:0.001840
+INFO:Epoch126, valid loss:0.128005, valid accuracy:0.751282
+INFO:Epoch127, train loss:0.001738
+INFO:Epoch127, valid loss:0.127089, valid accuracy:0.747436
+INFO:Epoch128, train loss:0.001460
+INFO:Epoch128, valid loss:0.127224, valid accuracy:0.746154
+INFO:Epoch129, train loss:0.001431
+INFO:Epoch129, valid loss:0.127605, valid accuracy:0.746154
+INFO:Epoch130, train loss:0.001437
+INFO:Epoch130, valid loss:0.127400, valid accuracy:0.748718
+INFO:Epoch131, train loss:0.001623
+INFO:Epoch131, valid loss:0.125938, valid accuracy:0.746154
+INFO:Epoch132, train loss:0.001453
+INFO:Epoch132, valid loss:0.127048, valid accuracy:0.747436
+INFO:Epoch133, train loss:0.001482
+INFO:Epoch133, valid loss:0.120485, valid accuracy:0.751282
+INFO:Epoch134, train loss:0.001551
+INFO:Epoch134, valid loss:0.130386, valid accuracy:0.744872
+INFO:Epoch135, train loss:0.001879
+INFO:Epoch135, valid loss:0.126034, valid accuracy:0.734615
+INFO:Epoch136, train loss:0.002673
+INFO:Epoch136, valid loss:0.131621, valid accuracy:0.738462
+INFO:Epoch137, train loss:0.003549
+INFO:Epoch137, valid loss:0.130454, valid accuracy:0.723077
+INFO:Epoch138, train loss:0.003952
+INFO:Epoch138, valid loss:0.126847, valid accuracy:0.720513
+INFO:Epoch139, train loss:0.005245
+INFO:Epoch139, valid loss:0.151913, valid accuracy:0.738462
+INFO:Epoch140, train loss:0.005209
+INFO:Epoch140, valid loss:0.130650, valid accuracy:0.723077
+INFO:Epoch141, train loss:0.005469
+INFO:Epoch141, valid loss:0.133393, valid accuracy:0.730769
+INFO:Epoch142, train loss:0.004308
+INFO:Epoch142, valid loss:0.139056, valid accuracy:0.744872
+INFO:Epoch143, train loss:0.003583
+INFO:Epoch143, valid loss:0.120719, valid accuracy:0.735897
+INFO:Epoch144, train loss:0.002673
+INFO:Epoch144, valid loss:0.123982, valid accuracy:0.746154
+INFO:Epoch145, train loss:0.002219
+INFO:Epoch145, valid loss:0.125982, valid accuracy:0.751282
+INFO:Epoch146, train loss:0.001574
+INFO:Epoch146, valid loss:0.120637, valid accuracy:0.756410
+INFO:Epoch147, train loss:0.001379
+INFO:Epoch147, valid loss:0.121970, valid accuracy:0.758974
+INFO:Epoch148, train loss:0.001294
+INFO:Epoch148, valid loss:0.122201, valid accuracy:0.758974
+INFO:Epoch149, train loss:0.001228
+INFO:Epoch149, valid loss:0.122186, valid accuracy:0.758974
+INFO:Epoch150, train loss:0.001122
+INFO:Epoch150, valid loss:0.122487, valid accuracy:0.758974
+INFO:Epoch151, train loss:0.001271
+INFO:Epoch151, valid loss:0.121018, valid accuracy:0.756410
+INFO:Epoch152, train loss:0.001314
+INFO:Epoch152, valid loss:0.122395, valid accuracy:0.760256
+INFO:Epoch153, train loss:0.001293
+INFO:Epoch153, valid loss:0.121204, valid accuracy:0.752564
+INFO:Epoch154, train loss:0.001477
+INFO:Epoch154, valid loss:0.121568, valid accuracy:0.748718
+INFO:Epoch155, train loss:0.001520
+INFO:Epoch155, valid loss:0.120370, valid accuracy:0.739744
+INFO:Epoch156, train loss:0.001999
+INFO:Epoch156, valid loss:0.124586, valid accuracy:0.752564
+INFO:Epoch157, train loss:0.002911
+INFO:Epoch157, valid loss:0.122778, valid accuracy:0.747436
+INFO:Epoch158, train loss:0.003920
+INFO:Epoch158, valid loss:0.145365, valid accuracy:0.734615
+INFO:Epoch159, train loss:0.004517
+INFO:Epoch159, valid loss:0.138398, valid accuracy:0.741026
+INFO:Epoch160, train loss:0.004965
+INFO:Epoch160, valid loss:0.156081, valid accuracy:0.732051
+INFO:Epoch161, train loss:0.003975
+INFO:Epoch161, valid loss:0.140858, valid accuracy:0.737179
+INFO:Epoch162, train loss:0.003773
+INFO:Epoch162, valid loss:0.134830, valid accuracy:0.734615
+INFO:Epoch163, train loss:0.002741
+INFO:Epoch163, valid loss:0.137759, valid accuracy:0.737179
+INFO:Epoch164, train loss:0.001966
+INFO:Epoch164, valid loss:0.133635, valid accuracy:0.748718
+INFO:Epoch165, train loss:0.001463
+INFO:Epoch165, valid loss:0.139011, valid accuracy:0.752564
+INFO:Epoch166, train loss:0.001414
+INFO:Epoch166, valid loss:0.137180, valid accuracy:0.757692
+INFO:Epoch167, train loss:0.001283
+INFO:Epoch167, valid loss:0.138104, valid accuracy:0.753846
+INFO:Epoch168, train loss:0.001120
+INFO:Epoch168, valid loss:0.130180, valid accuracy:0.755128
+INFO:Epoch169, train loss:0.001082
+INFO:Epoch169, valid loss:0.135724, valid accuracy:0.756410
+INFO:Epoch170, train loss:0.001057
+INFO:Epoch170, valid loss:0.136500, valid accuracy:0.761538
+INFO:Epoch171, train loss:0.001075
+INFO:Epoch171, valid loss:0.129051, valid accuracy:0.760256
+INFO:Epoch172, train loss:0.000954
+INFO:Epoch172, valid loss:0.136704, valid accuracy:0.758974
+INFO:Epoch173, train loss:0.001161
+INFO:Epoch173, valid loss:0.136092, valid accuracy:0.762821
+INFO:Epoch174, train loss:0.001103
+INFO:Epoch174, valid loss:0.136501, valid accuracy:0.764103
+INFO:Epoch175, train loss:0.001526
+INFO:Epoch175, valid loss:0.139755, valid accuracy:0.752564
+INFO:Epoch176, train loss:0.001884
+INFO:Epoch176, valid loss:0.145489, valid accuracy:0.750000
+INFO:Epoch177, train loss:0.002062
+INFO:Epoch177, valid loss:0.137387, valid accuracy:0.733333
+INFO:Epoch178, train loss:0.002973
+INFO:Epoch178, valid loss:0.154176, valid accuracy:0.741026
+INFO:Epoch179, train loss:0.003349
+INFO:Epoch179, valid loss:0.143115, valid accuracy:0.730769
+INFO:Epoch180, train loss:0.004541
+INFO:Epoch180, valid loss:0.156098, valid accuracy:0.726923
+INFO:Epoch181, train loss:0.004057
+INFO:Epoch181, valid loss:0.156268, valid accuracy:0.734615
+INFO:Epoch182, train loss:0.003476
+INFO:Epoch182, valid loss:0.150405, valid accuracy:0.752564
+INFO:Epoch183, train loss:0.002675
+INFO:Epoch183, valid loss:0.128647, valid accuracy:0.742308
+INFO:Epoch184, train loss:0.001816
+INFO:Epoch184, valid loss:0.136162, valid accuracy:0.746154
+INFO:Epoch185, train loss:0.001618
+INFO:Epoch185, valid loss:0.136989, valid accuracy:0.748718
+INFO:Epoch186, train loss:0.001188
+INFO:Epoch186, valid loss:0.133735, valid accuracy:0.751282
+INFO:Epoch187, train loss:0.001164
+INFO:Epoch187, valid loss:0.132743, valid accuracy:0.750000
+INFO:Epoch188, train loss:0.000902
+INFO:Epoch188, valid loss:0.132466, valid accuracy:0.756410
+INFO:Epoch189, train loss:0.000859
+INFO:Epoch189, valid loss:0.132688, valid accuracy:0.751282
+INFO:Epoch190, train loss:0.000941
+INFO:Epoch190, valid loss:0.125501, valid accuracy:0.756410
+INFO:Epoch191, train loss:0.000853
+INFO:Epoch191, valid loss:0.132756, valid accuracy:0.755128
+INFO:Epoch192, train loss:0.000909
+INFO:Epoch192, valid loss:0.127640, valid accuracy:0.755128
+INFO:Epoch193, train loss:0.000928
+INFO:Epoch193, valid loss:0.127685, valid accuracy:0.760256
+INFO:Epoch194, train loss:0.001055
+INFO:Epoch194, valid loss:0.133204, valid accuracy:0.758974
+INFO:Epoch195, train loss:0.001016
+INFO:Epoch195, valid loss:0.132018, valid accuracy:0.753846
+INFO:Epoch196, train loss:0.001370
+INFO:Epoch196, valid loss:0.140309, valid accuracy:0.737179
+INFO:Epoch197, train loss:0.002445
+INFO:Epoch197, valid loss:0.143165, valid accuracy:0.737179
+INFO:Epoch198, train loss:0.002783
+INFO:Epoch198, valid loss:0.159420, valid accuracy:0.723077
+INFO:Epoch199, train loss:0.003646
+INFO:Epoch199, valid loss:0.167732, valid accuracy:0.748718

@@ -1,0 +1,70 @@
+{
+  "dataset": "COV",
+  "n_test": 93,
+  "accuracy": 0.8172043010752689,
+  "correct": 76,
+  "metric": "accuracy",
+  "macro_f1": 0.8108361900236455,
+  "micro_f1": 0.8172043010752688,
+  "model": {
+    "dim": 1024,
+    "depth": 4,
+    "kernel_size": 9,
+    "patch_size": 16,
+    "pool_dim": 256,
+    "n_classes": 3
+  },
+  "input_pool": 1024,
+  "linear_resize": 1024,
+  "interpolation_align_corners": false,
+  "explicitly_ignored_legacy_keys": {},
+  "checkpoint": "/original-workspace/runs/cov_linear1024_2024_s2024/checkpoint.pth",
+  "checkpoint_sha256": "920d8f87829870875beecb0e76a559e1d9dcf6b946f69ac32b7a64cbf25a92ca",
+  "data_sha256": {
+    "test_x.npy": "0b0433e48276b2775f03f2a9ebf43d43c068468104d97b3b14cbc7fcdacc585c",
+    "test_y.npy": "c3a7aa5f6dec0b1f0b6008ac519a8aeb779327512707c01a2b6584a85e0d270e"
+  },
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "python": "3.10.13",
+  "device": "cuda:0",
+  "dependencies": {
+    "torch": "2.2.0+cu121",
+    "torchvision": "0.17.0+cu121",
+    "numpy": "1.26.3",
+    "scikit-learn": "1.3.0",
+    "scipy": "1.11.4"
+  },
+  "classification_report": {
+    "0.0": {
+      "precision": 0.8064516129032258,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.819672131147541,
+      "support": 30.0
+    },
+    "1.0": {
+      "precision": 0.8,
+      "recall": 0.6451612903225806,
+      "f1-score": 0.7142857142857142,
+      "support": 31.0
+    },
+    "2.0": {
+      "precision": 0.8378378378378378,
+      "recall": 0.96875,
+      "f1-score": 0.8985507246376812,
+      "support": 32.0
+    },
+    "accuracy": 0.8172043010752689,
+    "macro avg": {
+      "precision": 0.8147631502470212,
+      "recall": 0.8157482078853047,
+      "f1-score": 0.8108361900236455,
+      "support": 93.0
+    },
+    "weighted avg": {
+      "precision": 0.8151006365366407,
+      "recall": 0.8172043010752689,
+      "f1-score": 0.8116843469428943,
+      "support": 93.0
+    }
+  }
+}

@@ -1,0 +1,312 @@
+--- upstream/main.py
++++ pace_repo/main.py
+@@ -35,6 +35,8 @@
+                         help="Choose base model for fine-tune")
+     parser.add_argument('--test_checkpoint',
+                         help="Choose checkpoint for test")
++    parser.add_argument('--allow-unused-wave-emb', action='store_true',
++                        help="Explicitly ignore the seven legacy wave_emb keys in the author COV checkpoint")
+     parser.add_argument('--seed',
+                         default=2024,
+                         help="Random seed")
+@@ -42,7 +44,7 @@
+     # params of PACE
+     parser.add_argument('--dim',
+                         help="dim of net")
+-    parser.add_argument('--depth',
++    parser.add_argument('--depth', '--deepth',
+                         help="depth of net")
+     parser.add_argument('--kernel_size',
+                         help="kernel size of net")
+@@ -50,13 +52,15 @@
+                         help="patch size of net")
+     parser.add_argument('--pool_dim',
+                         help="pool dim of net")
++    parser.add_argument('--linear_resize', type=int,
++                        help="Optional linear interpolation before pooling (paper protocol; align_corners=False)")
+ 
+     # params of strategy
+     parser.add_argument('--train_size',
+                         help="train size for train_val_split")
+     parser.add_argument('--batch_size',
+                         help="batch size for training")
+-    parser.add_argument('--epoch',
++    parser.add_argument('--epoch', '--epochs',
+                         help="epochs for training")
+     parser.add_argument('--lr',
+                         help="learning rate")
+@@ -76,7 +80,7 @@
+         args.batch_size = '8'
+ 
+     seed_everything(int(args.seed))
+-    ts = time.strftime('%Y-%m-%d_%H_%M', time.localtime())
++    ts = time.strftime('%Y-%m-%d_%H_%M_%S', time.localtime())
+ 
+     ds = args.ds
+     net_ = args.net
+@@ -141,6 +145,12 @@
+         params['strategy']['Adam_params']["lr"] = float(args.lr)
+     if args.train_size:
+         params['strategy']['train_size'] = float(args.train_size)
++    if args.linear_resize:
++        params['strategy']['linear_resize'] = args.linear_resize
++
++    logging.info('Effective network: %s', params['net'])
++    logging.info('Effective strategy: %s', params['strategy'])
++    logging.info('Effective task: n_classes=%s, linear_resize=%s', n_classes, args.linear_resize)
+ 
+     if net_ == 'PACE':
+         from models.PACE import PACE
+@@ -156,10 +166,19 @@
+         elif args.tune:
+             import torch
+ 
+-            base_model_path = args.base_model_path
++            # ``--base_checkpoint`` is the public CLI option; the old
++            # ``args.base_model_path`` name caused tuning to fail before the
++            # first epoch.
++            base_model_path = args.base_checkpoint
++            if not base_model_path:
++                raise ValueError('--base_checkpoint is required with --tune')
+             print(base_model_path)
+-            net = load_net_state(net, torch.load(f'{base_model_path}.pth'))
+-            train_model(net, save_path=f"{base_model_path}/tune", ds=args.ds, device=device,
++            checkpoint_path = base_model_path if base_model_path.endswith('.pth') else f'{base_model_path}.pth'
++            net = load_net_state(net, torch.load(checkpoint_path, map_location=device, weights_only=True),
++                                 allow_unused_wave_emb=args.allow_unused_wave_emb)
++            tune_dir = os.path.splitext(checkpoint_path)[0]
++            os.makedirs(tune_dir, exist_ok=True)
++            train_model(net, save_path=f"{tune_dir}/tune", ds=args.ds, device=device,
+                         tune=True, **params['strategy'])
+ 
+         elif args.test:
+@@ -167,13 +186,15 @@
+ 
+             test_model_path = args.test_checkpoint
+             print(test_model_path)
+-            net = load_net_state(net, torch.load(test_model_path,
+-                                                 map_location={'cuda:0': device, 'cuda:1': device}))
+-            test_model(net, device=device, ds=args.ds)
++            net = load_net_state(net, torch.load(test_model_path, map_location=device, weights_only=True),
++                                 allow_unused_wave_emb=args.allow_unused_wave_emb)
++            test_model(net, device=device, ds=args.ds, linear_resize=args.linear_resize)
+ 
+     except Exception as e:
+         import traceback
+ 
+         traceback.print_exc()
+         print(e)
+-        os.remove(f'logs/{ds}/{net_}/{ts}_{mode}.log')
++        # Preserve failure evidence and let shell/queue callers see a failure.
++        logging.exception('PACE run failed')
++        raise
+--- upstream/utils/utils.py
++++ pace_repo/utils/utils.py
+@@ -46,9 +46,11 @@
+         self.early_stop = False
+         self.delta = delta
+         if self.mode == 'min':
+-            self.val_score = np.Inf
+-        else:
+-            self.val_score = -np.Inf
++            # NumPy 2.0 removed the deprecated ``np.Inf`` alias.
++            self.val_score = np.inf
++        else:
++            # NumPy 2.0 removed the deprecated ``np.Inf`` alias.
++            self.val_score = -np.inf
+ 
+     def __call__(self, epoch_score, model, model_path):
+         if self.mode == 'min':
+@@ -138,14 +140,14 @@
+                     flag = True
+                     prediction = torch.argmax(output, dim=1).view(-1).detach().cpu().numpy()
+                     accuracy = (prediction == target).mean()
+-                    accuracies.update(accuracy.item(), data.size(0))
++                    accuracies.update(float(accuracy), data.size(0))
+                     bar.set_description(
+                         f'Epoch{epoch:3d}, valid loss:{losses.avg:6f} , accuracy:{accuracies.avg:6f}')
+-                elif binary and len(set(target[:, 0])) == 2:
++                elif binary:
+                     flag = True
+                     prediction = torch.greater_equal(output, 0.5).to(torch.float64).cpu().detach().numpy()
+                     accuracy = metrics.accuracy_score(target, prediction)
+-                    accuracies.update(accuracy.item(), data.size(0))
++                    accuracies.update(float(accuracy), data.size(0))
+                     bar.set_description(
+                         f'Epoch{epoch:3d}, valid loss:{losses.avg:6f} , valid accuracy:{accuracies.avg:6f}')
+                 else:
+@@ -154,7 +156,7 @@
+ 
+         if self.scheduler:
+             self.scheduler.step()
+-        if target.ndim == 1:
++        if target.ndim == 1 or binary:
+             logging.info(f'Epoch{epoch:3d}, valid loss:{losses.avg:6f}, valid accuracy:{accuracies.avg:6f}')
+         else:
+             logging.info(f'Epoch{epoch:3d}, valid loss:{losses.avg:6f}')
+@@ -193,7 +195,7 @@
+                 outputs.append(output.detach().cpu().numpy())
+ 
+                 losses.update(loss.item(), data.size(0))
+-                accuracies.update(accuracy.item(), data.size(0))
++                accuracies.update(float(accuracy), data.size(0))
+                 bar.set_description(
+                     f"test loss: {losses.avg:.5f} accuracy:{accuracies.avg:.5f}")
+                 predicted += prediction.tolist()
+@@ -202,17 +204,16 @@
+         return outputs, np.array(predicted), np.array(true), accuracies.avg, losses.avg
+ 
+ 
+-def load_net_state(net, state_dict):
+-    # check the keys and load the weight
+-    net_keys = net.state_dict().keys()
+-    state_dict_keys = state_dict.keys()
+-    for key in net_keys:
+-        if key in state_dict_keys:
+-            # load the weight
+-            net.state_dict()[key].copy_(state_dict[key])
+-        else:
+-            print('key error: ', key)
+-    net.load_state_dict(net.state_dict())
++def load_net_state(net, state_dict, allow_unused_wave_emb=False):
++    if allow_unused_wave_emb:
++        legacy_keys = {'wave_emb.0.weight', 'wave_emb.0.bias', 'wave_emb.1.weight',
++                       'wave_emb.1.bias', 'wave_emb.1.running_mean',
++                       'wave_emb.1.running_var', 'wave_emb.1.num_batches_tracked'}
++        removed = sorted(set(state_dict) & legacy_keys)
++        if removed:
++            logging.warning('Explicitly discarding legacy keys absent from published model: %s', removed)
++        state_dict = {k: v for k, v in state_dict.items() if k not in legacy_keys}
++    net.load_state_dict(state_dict, strict=True)
+     return net
+ 
+ 
+@@ -224,9 +225,8 @@
+     train_loader, val_loader = make_trainloader(
+         ds, batch_size=kwargs['batch_size'],
+         num_workers=12, train_size=kwargs['train_size'],
+-        seed=42, tune=tune, pool_dim=pool_dim)
+-
+-    test_loader = make_testloader(ds, pool_dim=pool_dim)
++        seed=42, tune=tune, pool_dim=pool_dim, resize_dim=kwargs.get('linear_resize'))
++
+     binary = True if ds == 'FunctionalGroups' else False
+     criterion = torch.nn.BCELoss() if binary else torch.nn.CrossEntropyLoss()
+ 
+@@ -234,13 +234,17 @@
+         model.parameters(), **kwargs['Adam_params'])
+ 
+     scheduler = CosineAnnealingLR(optimizer, T_max=10, eta_min=1e-6)
++    logging.info('Effective optimizer: %s, defaults=%s', type(optimizer).__name__, optimizer.defaults)
++    logging.info('Effective scheduler: %s, T_max=%s, eta_min=%s, step=once_per_validation_epoch',
++                 type(scheduler).__name__, scheduler.T_max, scheduler.eta_min)
++    logging.info('Effective split: train=%s, valid=%s, split_seed=42, train_size=%s',
++                 len(train_loader.dataset), len(val_loader.dataset), kwargs['train_size'])
+ 
+     # mode = 'min' if not tune else 'max'
+     mode = 'max'
+     es = EarlyStop(patience=kwargs['patience'], mode=mode)
+ 
+     engine = Engine(train_loader=train_loader, val_loader=val_loader,
+-                    test_loader=test_loader,
+                     criterion=criterion, optimizer=optimizer, scheduler=scheduler,
+                     model=model, device=device)
+ 
+@@ -248,20 +252,20 @@
+     for epoch in range(kwargs['epoch']):
+         train_loss = engine.train_epoch(epoch, binary=binary)
+         val_loss, acc = engine.evaluate_epoch(epoch, binary=binary)
+-        _, _, _, test_acc, test_loss = engine.test_epoch(binary=binary)
+-
+-        if acc:
++        # Select only with held-out validation labels. In particular, 0.0 is
++        # a valid accuracy and must never fall back to maximizing val_loss.
++        if acc is not None:
+             es(acc, model, f'{save_path}.pth')
+         else:
+-            es(val_loss, model, f'{save_path}.pth')
++            raise ValueError('Validation accuracy unavailable for this classification task')
+         if es.early_stop:
+             break
+     print(es.val_score)
+ 
+ 
+-def test_model(model, ds, device='cpu', verbose=True):
++def test_model(model, ds, device='cpu', verbose=True, linear_resize=None):
+     pool_dim = 1024
+-    test_loader = make_testloader(ds, pool_dim=pool_dim)
++    test_loader = make_testloader(ds, pool_dim=pool_dim, resize_dim=linear_resize)
+     binary = True if ds == 'FunctionalGroups' else False
+     criterion = torch.nn.BCELoss() if binary else torch.nn.CrossEntropyLoss()
+     engine = Engine(test_loader=test_loader,
+--- upstream/utils/dataloader.py
++++ pace_repo/utils/dataloader.py
+@@ -14,11 +14,12 @@
+ class myDataset(Dataset):
+     """create dataset"""
+ 
+-    def __init__(self, X, y, transform=None, pool_dim=None):
++    def __init__(self, X, y, transform=None, pool_dim=None, resize_dim=None):
+         self.data = X
+         self.transform = transform
+         self.label = torch.FloatTensor(y) if y.ndim == 2 else torch.LongTensor(y)
+         self.pool_dim = pool_dim
++        self.resize_dim = resize_dim
+ 
+     def __len__(self):
+         return len(self.data)
+@@ -27,12 +28,18 @@
+         X = self.data[item, :]
+         X = self.transform(X)
+         y = self.label[item]
++        if self.resize_dim:
++            X = F.interpolate(X.unsqueeze(0), size=self.resize_dim,
++                              mode='linear', align_corners=False).squeeze(0)
+         if self.pool_dim:
+             X = F.adaptive_avg_pool1d(X, self.pool_dim)
+         return X, y
+ 
+ 
+-def make_trainloader(ds, batch_size=16, num_workers=12, train_size=0.8, seed=42, tune=False, pool_dim=None):
++def make_trainloader(ds, batch_size=16, num_workers=12, train_size=0.8, seed=42, tune=False, pool_dim=None, resize_dim=None):
++
++    if train_size is None or not 0 < train_size < 1:
++        raise ValueError('train_size must lie strictly between 0 and 1; test data cannot serve as validation')
+ 
+     if tune:
+         data_x = np.load(f'datasets/{ds}/tune_x.npy')
+@@ -50,15 +57,15 @@
+ 
+     if train_size:
+         train_id, val_id = tts(ids, shuffle=True, train_size=train_size, random_state=seed, stratify=stratify)
+-        trainset = myDataset(data_x[train_id], data_y[train_id], transform=transform_train, pool_dim=pool_dim)
+-        valset = myDataset(data_x[val_id], data_y[val_id], transform=transform_valid, pool_dim=pool_dim)
++        trainset = myDataset(data_x[train_id], data_y[train_id], transform=transform_train, pool_dim=pool_dim, resize_dim=resize_dim)
++        valset = myDataset(data_x[val_id], data_y[val_id], transform=transform_valid, pool_dim=pool_dim, resize_dim=resize_dim)
+ 
+     else:
+         test_x = np.load(f'datasets/{ds}/test_x.npy')
+         test_y = np.load(f'datasets/{ds}/test_y.npy')
+ 
+-        trainset = myDataset(data_x, data_y, transform=transform_train, pool_dim=pool_dim)
+-        valset = myDataset(test_x, test_y, transform=transform_valid, pool_dim=pool_dim)
++        trainset = myDataset(data_x, data_y, transform=transform_train, pool_dim=pool_dim, resize_dim=resize_dim)
++        valset = myDataset(test_x, test_y, transform=transform_valid, pool_dim=pool_dim, resize_dim=resize_dim)
+ 
+     trainloader = DataLoader(trainset, batch_size=batch_size, num_workers=num_workers, shuffle=True, pin_memory=True)
+     valloader = DataLoader(valset, batch_size=batch_size, num_workers=num_workers, shuffle=False, pin_memory=True)
+@@ -66,12 +73,12 @@
+     return trainloader, valloader
+ 
+ 
+-def make_testloader(ds, batch_size=128, num_workers=12, pool_dim=256):
++def make_testloader(ds, batch_size=128, num_workers=12, pool_dim=256, resize_dim=None):
+     data_x = np.load(f'datasets/{ds}/test_x.npy')
+     data_y = np.load(f'datasets/{ds}/test_y.npy')
+ 
+     transform_valid = bacteria_valid_transform if ds == 'Bacteria' else valid_transform
+ 
+-    testset = myDataset(data_x, data_y, transform=transform_valid, pool_dim=pool_dim)
++    testset = myDataset(data_x, data_y, transform=transform_valid, pool_dim=pool_dim, resize_dim=resize_dim)
+     return DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
+ 

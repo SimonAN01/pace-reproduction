@@ -1,0 +1,14 @@
+.venv*/
+__pycache__/
+*.pyc
+.runtime/
+runs/
+reference_models/
+pace_repo/datasets/
+pace_repo/checkpoints/
+pace_repo/logs/
+covid_source/datasets
+covid_source/checkpoints/
+covid_source/logs/
+*.part
+.DS_Store

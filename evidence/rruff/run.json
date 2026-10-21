@@ -1,0 +1,92 @@
+{
+  "invocation": {
+    "dataset": "RRUFF",
+    "epochs": 200,
+    "seed": 2024,
+    "train_size": 0.8,
+    "device": "cuda:0",
+    "linear_resize": 1024,
+    "output": "/original-workspace/runs/rruff_linear1024_2024_s2024",
+    "tune": false,
+    "base_checkpoint": null,
+    "queue_job_id": "rruff_linear1024_2024_s2024",
+    "queue_job_sha256": "84c6db1518bdf742ed9bcfb0be9af42ed446677070cb6578c5d871684590569e",
+    "queue_contract_sha256": "e755ba6338247a4c0686c714fe302d4fe7264c8e0ea646cf4871c8ebeb95f262",
+    "environment_role": "legacy",
+    "evaluate_test": true
+  },
+  "environment": {
+    "executable": "/original-workspace/.venv-pace2024/bin/python",
+    "prefix": "/original-workspace/.venv-pace2024",
+    "python": "3.10.13",
+    "dependencies": {
+      "torch": "2.2.0+cu121",
+      "numpy": "1.26.3",
+      "scipy": "1.11.4",
+      "scikit-learn": "1.3.0",
+      "torchvision": "0.17.0+cu121"
+    }
+  },
+  "command": [
+    "/original-workspace/.venv-pace2024/bin/python",
+    "main.py",
+    "--train",
+    "--ds",
+    "RRUFF",
+    "--device",
+    "cuda:0",
+    "--epoch",
+    "200",
+    "--seed",
+    "2024",
+    "--train_size",
+    "0.8",
+    "--linear_resize",
+    "1024"
+  ],
+  "cwd": "/original-workspace/pace_repo",
+  "status": "complete",
+  "final_test_requested": true,
+  "python": "3.10.13",
+  "dependencies": {
+    "torch": "2.2.0+cu121",
+    "numpy": "1.26.3",
+    "scipy": "1.11.4",
+    "scikit-learn": "1.3.0",
+    "torchvision": "0.17.0+cu121"
+  },
+  "started_utc": "2026-10-20T18:46:30.609593+00:00",
+  "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+  "code_sha256": {
+    "main.py": "047b4a72d2aa6e8e454f071d47e28c6793077b6a45754a70f57d8acf241b8bcb",
+    "config.py": "eb723f334ade4c76f8fa1d3269ec9ddc994ecca23c20b04297c1a15ae0322f6e",
+    "models/PACE.py": "fd48efba9c96bed0e06c84f6ae4778c7a4628df75bc8eea0ebdf23d483fdaa4f",
+    "utils/utils.py": "3bf8bdec5fa605c53b3cc0ef159a48e1997da07f4f8a79515e2598851fa91114",
+    "utils/dataloader.py": "49503acb1611f179471dfaa17f5e9366b0549f0b9dbf7cd24f9b21d89d216c19",
+    "utils/transform.py": "9e8fe60b64f84ff924cc945178d146a5c46ce1a969c0ee52463a01902b53bddb",
+    "scripts/train_public.py": "03797c2ffc5280f76329f884b81553e6c093f70de5c48725612fde738267a287",
+    "scripts/evaluate.py": "0f01443e04f01d8d86f99386e081018d5b9e59ceadfa67fa22a51a12afc7489f",
+    "scripts/experiment_contract.py": "2dace414866854a3812d8382550c6a24adc9330eedb210659eed12db48bea1fc"
+  },
+  "data_sha256": {
+    "test_x.npy": "c0a88c758c451dc3af908bb178bd2f80ae3653c7fe3f65f0c9f0aba374e587b1",
+    "test_y.npy": "55d64e95e513365a65667a69e0e9c7ea3719a4d5dab2b885d12d82845e7b1a2b",
+    "train_x.npy": "959bada5399bf03f92fb425979406f6afab9cd385de725c67718565cc0bff7ce",
+    "train_y.npy": "b40eba09c5724fe755cebec772b43b5f3cee49894d0245ef632b711a8926894f"
+  },
+  "split": {
+    "random_state": 42,
+    "train_size": 0.8,
+    "n_train": 6795,
+    "n_valid": 1699,
+    "sha256": "740bdb2267f503df1926f683784ab45f993e9791a237f06bf91a9b8b23544b7a"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 595.71.05",
+  "training_pid": 876201,
+  "training_start_ticks": "4729337",
+  "checkpoint_sha256": "a3b61508c98fa1b8ee22350debfef748036df7efdb03d5e8d6bcd4e368a7b2d7",
+  "completed_epochs": 200,
+  "best_val_accuracy": 0.955268,
+  "selected_epoch": 190,
+  "finished_utc": "2026-10-20T18:55:35.503281+00:00"
+}
