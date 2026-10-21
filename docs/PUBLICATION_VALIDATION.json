@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-21T05:53:44.987830+00:00",
+  "fresh_inference": [
+    {
+      "target": "covid_high",
+      "correct": 84,
+      "n_test": 93,
+      "accuracy": 0.9032258064516129,
+      "predictions_equal_original": true,
+      "logit_max_abs_diff": 0.0,
+      "environment": {
+        "torch": "2.0.1+cu118",
+        "torchvision": "0.15.2+cu118",
+        "numpy": "1.26.3",
+        "scikit-learn": "1.3.0",
+        "scipy": "1.11.4"
+      },
+      "checkpoint_sha256": "50747526fb799f272f6efc36f56282b9e67b9041002dba19597ea8615fd1c4f9",
+      "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+      "execution_repository_commit": "03cb9b894dbb7f3a53604bad8306427a286a640e"
+    },
+    {
+      "target": "marine",
+      "correct": 567,
+      "n_test": 570,
+      "accuracy": 0.9947368421052631,
+      "predictions_equal_original": true,
+      "logit_max_abs_diff": 0.0,
+      "environment": {
+        "torch": "2.2.0+cu121",
+        "torchvision": "0.17.0+cu121",
+        "numpy": "1.26.3",
+        "scikit-learn": "1.3.0",
+        "scipy": "1.11.4"
+      },
+      "checkpoint_sha256": "3dcd3777a9345bfca35657be7878f4bacd4a32125eb8aa0a4b939508e8efbae2",
+      "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+      "execution_repository_commit": "03cb9b894dbb7f3a53604bad8306427a286a640e"
+    },
+    {
+      "target": "rruff",
+      "correct": 3487,
+      "n_test": 3554,
+      "accuracy": 0.9811480022509848,
+      "predictions_equal_original": true,
+      "logit_max_abs_diff": 0.0,
+      "environment": {
+        "torch": "2.2.0+cu121",
+        "torchvision": "0.17.0+cu121",
+        "numpy": "1.26.3",
+        "scikit-learn": "1.3.0",
+        "scipy": "1.11.4"
+      },
+      "checkpoint_sha256": "a3b61508c98fa1b8ee22350debfef748036df7efdb03d5e8d6bcd4e368a7b2d7",
+      "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+      "execution_repository_commit": "03cb9b894dbb7f3a53604bad8306427a286a640e"
+    },
+    {
+      "target": "functional_groups",
+      "correct": 1470,
+      "n_test": 1950,
+      "accuracy": 0.7538461538461538,
+      "predictions_equal_original": true,
+      "logit_max_abs_diff": 0.0,
+      "environment": {
+        "torch": "2.2.0+cu121",
+        "torchvision": "0.17.0+cu121",
+        "numpy": "1.26.3",
+        "scikit-learn": "1.3.0",
+        "scipy": "1.11.4"
+      },
+      "checkpoint_sha256": "5507a4ffdb16e09ad7ae4616e2426f8c1e4a735f01c2d0e66b30fd568ce99a79",
+      "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+      "execution_repository_commit": "03cb9b894dbb7f3a53604bad8306427a286a640e"
+    },
+    {
+      "target": "bacteria",
+      "correct": 2567,
+      "n_test": 3000,
+      "accuracy": 0.8556666666666667,
+      "predictions_equal_original": true,
+      "logit_max_abs_diff": 0.0,
+      "environment": {
+        "torch": "2.2.0+cu121",
+        "torchvision": "0.17.0+cu121",
+        "numpy": "1.26.3",
+        "scikit-learn": "1.3.0",
+        "scipy": "1.11.4"
+      },
+      "checkpoint_sha256": "0721830250cc74bde5b745840e2474f47bf99591ec0fc6ea329daf251da9eee0",
+      "upstream_commit": "4e1f541b5776e7fd1df14fce271b11a5cbfe3f87",
+      "execution_repository_commit": "03cb9b894dbb7f3a53604bad8306427a286a640e"
+    }
+  ],
+  "sanity_training": [
+    {
+      "target": "covid_high",
+      "status": "complete",
+      "epochs": 1,
+      "final_test_requested": false,
+      "first_epoch": {
+        "epoch": 0,
+        "train_loss": 1.883396,
+        "val_loss": 1.104336,
+        "val_accuracy": 0.333333
+      },
+      "original_first_epoch": {
+        "epoch": 0,
+        "train_loss": 1.883396,
+        "val_loss": 1.104336,
+        "val_accuracy": 0.333333
+      },
+      "first_epoch_equal": true,
+      "execution_repository_commit": "b5e148ad59c49257aa89317012e46267cc6b1dfc"
+    },
+    {
+      "target": "marine",
+      "status": "complete",
+      "epochs": 1,
+      "final_test_requested": false,
+      "first_epoch": {
+        "epoch": 0,
+        "train_loss": 1.387991,
+        "val_loss": 2.109124,
+        "val_accuracy": 0.131579
+      },
+      "original_first_epoch": {
+        "epoch": 0,
+        "train_loss": 1.387991,
+        "val_loss": 2.109124,
+        "val_accuracy": 0.131579
+      },
+      "first_epoch_equal": true,
+      "execution_repository_commit": "b5e148ad59c49257aa89317012e46267cc6b1dfc"
+    }
+  ],
+  "data_files_verified": 30,
+  "full_five_dataset_retraining_performed_for_publication": false,
+  "failure_preserved": "first table evaluator lost virtualenv after Path.resolve(); fixed with Path.absolute(), new output and logs retained"
+}
